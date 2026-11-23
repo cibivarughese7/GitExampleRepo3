@@ -1,0 +1,13 @@
+import { defineConfig } from '@playwright/test';
+import { defineBddConfig } from 'playwright-bdd';
+
+const testDir = defineBddConfig({
+  features: 'tests/features/**/*.feature',
+  steps: 'tests/steps/**/*.js',
+});
+
+export default defineConfig({
+  testDir,
+  reporter: 'html',
+  use: { headless: false },
+});
